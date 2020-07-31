@@ -21,11 +21,11 @@ We need you to provide us with a piece of code to help us calculate the total pr
 leads. An example of calling this code is below:
 
 
-calculator = Calculator(pricing_rules)
-calculator.add(LeadCode)
-calculator.add(LeadCode)
-calculator.add(LeadCode)
-total = calculator.total()
+`calculator = Calculator(pricing_rules)`
+`calculator.add(LeadCode)`
+`calculator.add(LeadCode)`
+`calculator.add(LeadCode)`
+`total = calculator.total()`
 
 
 You should be able to implement the Calculator class above such that it will calculate the
