@@ -47,3 +47,9 @@ Test Data:
 1 x B, 10 x R
 
 £65
+
+### how to run [command prompt]
+
+`python calculator.py`
+
+and then just give the input as it is asking
