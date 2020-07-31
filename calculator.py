@@ -1,22 +1,29 @@
-
+# this is real estate calculator class
 class Calculator():
-    tot = 0.0
+    total_revenue = 0.0
     # for bonus calculation
     buy = 0
     rent = 0
+    pricing_rules = {}
+
+    # get the normla pricing rules
+    def __init__(self, pricing_rules):
+        self.pricing_rules = pricing_rules
 
     # calculate addition
     def add(self, c):
         price = self.switch(c)
-        self.tot += price
+        self.total_revenue += price
         self.rules()
 
+    # calculate bonus rules
     def rules(self):
-        if self.buy > 5:
-            self.tot += 10
+        if self.buy > self.pricing_rules['B']['no']:
+            self.total_revenue += self.pricing_rules['B']['bonus']
             self.buy -= 6
-        elif self.rent > 8:
-            self.tot += (self.tot * 10 / 100)
+        elif self.rent > self.pricing_rules['R']['no']:
+            self.total_revenue += (self.total_revenue *
+                                   (self.pricing_rules['B']['bonus'] / 100))
             self.rent -= 9
 
     # switch case for lead codes
@@ -36,12 +43,15 @@ class Calculator():
 
     # return total
     def total(self):
-        return self.tot
+        return self.total_revenue
 
 
-calculator = Calculator()
+pricing_rules = {'B': {'no': 5, 'bonus': 10}, 'R': {'no': 8, 'bonus': 10}}
+# calculator obj
+calculator = Calculator(pricing_rules)
 codes = ['b', 'r', 'st']
 
+# taking inputs until enter wrong or no code character
 while True:
     lead_code = input(
         "Enter lead code [b/r/st] or any other character to break the loop: ")
